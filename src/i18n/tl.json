@@ -1,0 +1,80 @@
+{
+  "lang": "tl",
+  "langLabel": "Filipino",
+
+  "home": {
+    "title": "Paper Lantern",
+    "subtitle": "Unawain ang mga sulat na Hapon sa iyong wika.",
+    "uploadButton": "Mag-upload ng larawan ng sulat",
+    "demoButton": "Tingnan ang demo",
+    "dropzoneHint": "I-drag ang larawan dito o i-click upang pumili",
+    "acceptedFormats": "JPEG o PNG, hanggang 10 MB",
+    "languageLabel": "Wika ng paliwanag"
+  },
+
+  "upload": {
+    "preview": "Preview",
+    "changeImage": "Palitan ang larawan",
+    "analyzeButton": "Suriin ang sulat",
+    "cancel": "Kanselahin",
+    "errorSize": "Ang larawan ay dapat na 10 MB o mas maliit.",
+    "errorType": "Hindi suportadong format. Gamitin ang JPEG o PNG.",
+    "errorGeneric": "Hindi ma-load ang larawan. Subukan muli."
+  },
+
+  "analysis": {
+    "loading": "Sinusuri ang sulat…",
+    "timeout": "Mas matagal ang pagsusuri kaysa inaasahan. Subukan muli.",
+    "errorApiNotConfigured": "Hindi available ang pagsusuri ng larawan sa installation na ito.",
+    "errorInvalidResponse": "Hindi maproseso ang tugon ng modelo. Subukan muli.",
+    "errorIllegible": "Hindi mabasa ang larawan. Subukang kumuha ng mas malinaw na larawan.",
+    "errorNotJapanese": "Ang larawang ito ay hindi mukhang dokumentong Hapon.",
+    "errorGeneric": "Naganap ang hindi inaasahang error. Subukan muli.",
+    "documentType": "Uri ng dokumento",
+    "summary": "Buod",
+    "deadlines": "Mga deadline",
+    "amounts": "Mga halaga",
+    "actions": "Mga kinakailangang aksyon",
+    "references": "Mga sangguniang sipi",
+    "referencesWarning": "Ang mga sipi sa ibaba ay kinuha ng modelo — kumpirmahin ang mahahalagang impormasyon direkta sa sulat.",
+    "referencesWarningDemo": "Ang mga sipi sa ibaba ay bahagi ng kathang-isip na halimbawa — hindi ito kumakatawan sa tunay na dokumento.",
+    "illegibleChip": "hindi mababasang sipi — hindi binibigyang-kahulugan",
+    "lowConfidenceChip": "hindi siguradong pagbabasa",
+    "aiDisclaimer": "Ginawa ng AI — kumpirmahin ang mahahalagang impormasyon direkta sa sulat.",
+    "aiDisclaimerDemo": "Ito ay isang kathang-isip na halimbawa para sa demonstrasyon — hindi ito isang tunay na dokumento.",
+    "noDeadlines": "Walang naidentipikang deadline.",
+    "noAmounts": "Walang naidentipikang halaga.",
+    "noActions": "Walang naidentipikang kinakailangang aksyon."
+  },
+
+  "checklist": {
+    "title": "Mga kinakailangang aksyon",
+    "progress": "{done} sa {total} nakumpleto"
+  },
+
+  "calendar": {
+    "exportButton": "I-export ang mga deadline sa kalendaryo",
+    "exportButtonDisabled": "Walang naidentipikang deadline para i-export",
+    "modalTitle": "Kumpirmahin ang mga deadline bago mag-export",
+    "modalDescription": "Suriin ang mga nakuhang petsa at itama kung kinakailangan bago mag-download.",
+    "dateLabel": "Petsa ng deadline",
+    "dateUncertain": "Hindi siguradong petsa — punan bago mag-export",
+    "confirm": "I-download ang .ics file",
+    "cancel": "Kanselahin",
+    "allDay": "Buong araw na event (walang tiyak na oras)"
+  },
+
+  "demo": {
+    "banner": "📄 KATHANG-ISIP NA DOKUMENTO — para sa demonstrasyon lamang",
+    "selectLabel": "Halimbawang dokumento",
+    "exitDemo": "Lumabas sa demo",
+    "doc1Name": "Bayarin sa tubig (水道局)",
+    "doc2Name": "Abiso ng paghahatid (日本郵便)",
+    "doc3Name": "Buwis sa munisipyo (市役所)"
+  },
+
+  "errors": {
+    "unknownError": "Hindi kilalang error.",
+    "tryAgain": "Subukan muli"
+  }
+}
