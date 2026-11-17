@@ -187,3 +187,14 @@ T-19 → T-20
 - Idiomas adicionais
 - Bounding boxes
 - Integração direta com Google Calendar / Apple Calendar
+
+## Photo integration checkpoint — 2026-11-18
+
+Implemented after the original Kiro demo, with ChatGPT coding assistance:
+- T-06: versioned document-analysis prompt and structured response schema.
+- T-07: server-side Gemini request, validation, no-store errors, timeout and bounded best-effort limits.
+- T-10: local photo preparation, preview, explicit provider disclosure/confirmation, analysis and localized results.
+- T-19: mocked endpoint and UI integration tests added; live model/key/OCR accuracy remains a separate verification step.
+- T-20: README and server-only environment settings documented.
+
+Keep the existing fictional demonstration independent. Do not mark live photo analysis verified until a deployed request with a fictional image has succeeded.

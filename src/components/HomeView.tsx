@@ -5,9 +5,10 @@ import LanguageSelector from "./LanguageSelector";
 
 interface Props {
   onStartDemo: () => void;
+  onStartUpload: () => void;
 }
 
-export default function HomeView({ onStartDemo }: Props) {
+export default function HomeView({ onStartDemo, onStartUpload }: Props) {
   const { t } = useLanguageContext();
 
   return (
@@ -82,31 +83,20 @@ export default function HomeView({ onStartDemo }: Props) {
 
       {/* Ações */}
       <div className="flex flex-col gap-3 w-full max-w-xs">
-        {/* Upload real (desabilitado — API não configurada) */}
+        {/* A foto só é enviada após pré-visualização e confirmação. */}
         <div className="relative group">
           <button
-            disabled
-            aria-disabled="true"
+            onClick={onStartUpload}
             className="
               w-full flex items-center justify-center gap-2
               bg-amber-800/40 text-amber-500 border border-amber-700/40
               font-semibold text-sm rounded-xl px-5 py-3.5
-              cursor-not-allowed
+              hover:bg-amber-800/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400
             "
           >
             <span aria-hidden="true">📷</span>
             {t("home.uploadButton")}
           </button>
-          <span
-            role="tooltip"
-            className="
-              absolute bottom-full left-1/2 -translate-x-1/2 mb-2
-              hidden group-hover:block text-xs bg-neutral-900 text-amber-200
-              px-3 py-1.5 rounded-lg whitespace-nowrap border border-amber-800/40
-            "
-          >
-            {t("analysis.errorApiNotConfigured")}
-          </span>
         </div>
 
         {/* Demo */}

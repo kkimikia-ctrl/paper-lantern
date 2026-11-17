@@ -1,17 +1,15 @@
 {
   "lang": "pt",
   "langLabel": "Português",
-
   "home": {
     "title": "Paper Lantern",
     "subtitle": "Entenda cartas japonesas no seu idioma.",
     "uploadButton": "Enviar foto de uma carta",
     "demoButton": "Ver demonstração",
     "dropzoneHint": "Arraste uma imagem aqui ou clique para selecionar",
-    "acceptedFormats": "JPEG ou PNG, até 10 MB",
+    "acceptedFormats": "Foto de até 10 MB. JPEG, PNG e formatos compatíveis com este aparelho.",
     "languageLabel": "Idioma da explicação"
   },
-
   "upload": {
     "preview": "Pré-visualização",
     "changeImage": "Trocar imagem",
@@ -19,9 +17,16 @@
     "cancel": "Cancelar",
     "errorSize": "A imagem deve ter no máximo 10 MB.",
     "errorType": "Formato não suportado. Use JPEG ou PNG.",
-    "errorGeneric": "Não foi possível carregar a imagem. Tente novamente."
+    "errorGeneric": "Não foi possível preparar a foto. Tente uma imagem JPEG ou PNG nítida.",
+    "back": "Início",
+    "resultTitle": "Explicação da carta",
+    "instructions": "Escolha uma foto nítida, com a carta inteira e boa iluminação. A pré-visualização fica no aparelho até você confirmar o envio.",
+    "choose": "Tirar foto ou escolher imagem",
+    "preparing": "Preparando a foto…",
+    "privacy": "A foto será enviada ao Google Gemini para análise. Nesta versão de teste, o serviço gratuito pode usar o conteúdo para melhorar seus produtos. Use documentos fictícios ou remova nomes, endereços, números pessoais e outros dados sensíveis antes de enviar. O Paper Lantern não salva a foto nem a explicação; ao sair, elas são descartadas.",
+    "consent": "Confirmo que a foto não contém dados pessoais ou sensíveis e autorizo o envio ao Google Gemini.",
+    "newPhoto": "Analisar outra foto"
   },
-
   "analysis": {
     "loading": "Analisando a carta…",
     "timeout": "A análise está demorando mais que o esperado. Tente novamente.",
@@ -44,14 +49,15 @@
     "aiDisclaimerDemo": "Este é um exemplo fictício criado para demonstração — não é um documento real.",
     "noDeadlines": "Nenhum prazo identificado.",
     "noAmounts": "Nenhum valor identificado.",
-    "noActions": "Nenhuma ação necessária identificada."
+    "noActions": "Nenhuma ação necessária identificada.",
+    "errorRateLimited": "O limite de análises foi atingido. Aguarde um pouco e tente novamente.",
+    "errorUnavailable": "Não foi possível conectar ao serviço de análise. Verifique a conexão e tente novamente.",
+    "partialWarning": "Há trechos com leitura incerta ou ilegível. Confira o documento original antes de agir."
   },
-
   "checklist": {
     "title": "Ações necessárias",
     "progress": "{done} de {total} concluídas"
   },
-
   "calendar": {
     "exportButton": "Exportar prazos para calendário",
     "exportButtonDisabled": "Nenhum prazo identificado para exportar",
@@ -63,7 +69,6 @@
     "cancel": "Cancelar",
     "allDay": "Evento de dia inteiro (sem horário definido)"
   },
-
   "demo": {
     "banner": "📄 DOCUMENTO FICTÍCIO — apenas para demonstração",
     "selectLabel": "Documento de exemplo",
@@ -72,7 +77,6 @@
     "doc2Name": "Aviso de entrega (日本郵便)",
     "doc3Name": "Imposto municipal (市役所)"
   },
-
   "errors": {
     "unknownError": "Erro desconhecido.",
     "tryAgain": "Tentar novamente"
