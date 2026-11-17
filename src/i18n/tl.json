@@ -1,17 +1,15 @@
 {
   "lang": "tl",
   "langLabel": "Filipino",
-
   "home": {
     "title": "Paper Lantern",
     "subtitle": "Unawain ang mga sulat na Hapon sa iyong wika.",
     "uploadButton": "Mag-upload ng larawan ng sulat",
     "demoButton": "Tingnan ang demo",
     "dropzoneHint": "I-drag ang larawan dito o i-click upang pumili",
-    "acceptedFormats": "JPEG o PNG, hanggang 10 MB",
+    "acceptedFormats": "Larawan hanggang 10 MB. JPEG, PNG at mga format na sinusuportahan ng device.",
     "languageLabel": "Wika ng paliwanag"
   },
-
   "upload": {
     "preview": "Preview",
     "changeImage": "Palitan ang larawan",
@@ -19,9 +17,16 @@
     "cancel": "Kanselahin",
     "errorSize": "Ang larawan ay dapat na 10 MB o mas maliit.",
     "errorType": "Hindi suportadong format. Gamitin ang JPEG o PNG.",
-    "errorGeneric": "Hindi ma-load ang larawan. Subukan muli."
+    "errorGeneric": "Hindi maihanda ang larawan. Subukan ang malinaw na JPEG o PNG.",
+    "back": "Simula",
+    "resultTitle": "Paliwanag ng liham",
+    "instructions": "Pumili ng malinaw na larawan ng buong liham na may sapat na liwanag. Nananatili sa device ang preview hanggang kumpirmahin mo ang pagpapadala.",
+    "choose": "Kumuha o pumili ng larawan",
+    "preparing": "Inihahanda ang larawan…",
+    "privacy": "Ipapadala ang larawan sa Google Gemini para suriin. Sa bersyong ito para sa pagsubok, maaaring gamitin ng libreng serbisyo ang nilalaman upang mapahusay ang mga produkto nito. Gumamit ng kathang-isip na dokumento o alisin muna ang mga pangalan, address, personal na numero at sensitibong datos. Hindi sine-save ng Paper Lantern ang larawan o paliwanag; mawawala ang mga ito kapag umalis ka sa screen.",
+    "consent": "Kinukumpirma kong walang personal o sensitibong datos ang larawan at pumapayag akong ipadala ito sa Google Gemini.",
+    "newPhoto": "Suriin ang ibang larawan"
   },
-
   "analysis": {
     "loading": "Sinusuri ang sulat…",
     "timeout": "Mas matagal ang pagsusuri kaysa inaasahan. Subukan muli.",
@@ -44,14 +49,15 @@
     "aiDisclaimerDemo": "Ito ay isang kathang-isip na halimbawa para sa demonstrasyon — hindi ito isang tunay na dokumento.",
     "noDeadlines": "Walang naidentipikang deadline.",
     "noAmounts": "Walang naidentipikang halaga.",
-    "noActions": "Walang naidentipikang kinakailangang aksyon."
+    "noActions": "Walang naidentipikang kinakailangang aksyon.",
+    "errorRateLimited": "Naabot na ang limitasyon ng pagsusuri. Maghintay at subukang muli.",
+    "errorUnavailable": "Hindi makakonekta sa serbisyo. Suriin ang koneksyon at subukang muli.",
+    "partialWarning": "May mga bahaging hindi tiyak o hindi mabasa. Tingnan ang orihinal na dokumento bago kumilos."
   },
-
   "checklist": {
     "title": "Mga kinakailangang aksyon",
     "progress": "{done} sa {total} nakumpleto"
   },
-
   "calendar": {
     "exportButton": "I-export ang mga deadline sa kalendaryo",
     "exportButtonDisabled": "Walang naidentipikang deadline para i-export",
@@ -63,7 +69,6 @@
     "cancel": "Kanselahin",
     "allDay": "Buong araw na event (walang tiyak na oras)"
   },
-
   "demo": {
     "banner": "📄 KATHANG-ISIP NA DOKUMENTO — para sa demonstrasyon lamang",
     "selectLabel": "Halimbawang dokumento",
@@ -72,7 +77,6 @@
     "doc2Name": "Abiso ng paghahatid (日本郵便)",
     "doc3Name": "Buwis sa munisipyo (市役所)"
   },
-
   "errors": {
     "unknownError": "Hindi kilalang error.",
     "tryAgain": "Subukan muli"

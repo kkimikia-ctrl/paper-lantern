@@ -1,17 +1,15 @@
 {
   "lang": "en",
   "langLabel": "English",
-
   "home": {
     "title": "Paper Lantern",
     "subtitle": "Understand Japanese letters in your language.",
     "uploadButton": "Upload a photo of a letter",
     "demoButton": "View demo",
     "dropzoneHint": "Drag an image here or click to select",
-    "acceptedFormats": "JPEG or PNG, up to 10 MB",
+    "acceptedFormats": "Photo up to 10 MB. JPEG, PNG and formats supported by this device.",
     "languageLabel": "Explanation language"
   },
-
   "upload": {
     "preview": "Preview",
     "changeImage": "Change image",
@@ -19,9 +17,16 @@
     "cancel": "Cancel",
     "errorSize": "Image must be 10 MB or smaller.",
     "errorType": "Unsupported format. Please use JPEG or PNG.",
-    "errorGeneric": "Could not load the image. Please try again."
+    "errorGeneric": "Could not prepare this photo. Try a clear JPEG or PNG image.",
+    "back": "Home",
+    "resultTitle": "Letter explanation",
+    "instructions": "Choose a sharp photo showing the entire letter in good light. The preview stays on your device until you confirm sending it.",
+    "choose": "Take a photo or choose an image",
+    "preparing": "Preparing the photo…",
+    "privacy": "The photo will be sent to Google Gemini for analysis. In this test version, the free service may use the content to improve its products. Use fictional documents or remove names, addresses, personal numbers and other sensitive data before sending. Paper Lantern does not save the photo or explanation; leaving this screen discards them.",
+    "consent": "I confirm the photo contains no personal or sensitive data and authorize sending it to Google Gemini.",
+    "newPhoto": "Analyze another photo"
   },
-
   "analysis": {
     "loading": "Analyzing the letter…",
     "timeout": "Analysis is taking longer than expected. Please try again.",
@@ -44,14 +49,15 @@
     "aiDisclaimerDemo": "This is a fictional example created for demonstration — it is not a real document.",
     "noDeadlines": "No deadlines identified.",
     "noAmounts": "No amounts identified.",
-    "noActions": "No required actions identified."
+    "noActions": "No required actions identified.",
+    "errorRateLimited": "The analysis limit has been reached. Please wait and try again.",
+    "errorUnavailable": "Could not connect to the analysis service. Check your connection and try again.",
+    "partialWarning": "Some text is uncertain or unreadable. Check the original document before acting."
   },
-
   "checklist": {
     "title": "Required actions",
     "progress": "{done} of {total} completed"
   },
-
   "calendar": {
     "exportButton": "Export deadlines to calendar",
     "exportButtonDisabled": "No deadlines identified to export",
@@ -63,7 +69,6 @@
     "cancel": "Cancel",
     "allDay": "All-day event (no specific time)"
   },
-
   "demo": {
     "banner": "📄 FICTIONAL DOCUMENT — for demonstration only",
     "selectLabel": "Sample document",
@@ -72,7 +77,6 @@
     "doc2Name": "Delivery notice (日本郵便)",
     "doc3Name": "Municipal tax (市役所)"
   },
-
   "errors": {
     "unknownError": "Unknown error.",
     "tryAgain": "Try again"

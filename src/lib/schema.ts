@@ -153,6 +153,8 @@ export const ApiErrorSchema = z.object({
     "TIMEOUT",
     "IMAGE_ILLEGIBLE",
     "NOT_JAPANESE_DOCUMENT",
+    "RATE_LIMITED",
+    "PROVIDER_UNAVAILABLE",
     "INTERNAL_ERROR",
   ]),
 });
