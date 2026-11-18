@@ -76,7 +76,7 @@ export async function analyzeRequest(request: Request): Promise<Response> {
   if (!/^[a-zA-Z0-9._-]+$/.test(model)) return fail("API_NOT_CONFIGURED", 503);
   active++;
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+    const options: RequestInit = {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": key },
       signal: AbortSignal.timeout(45_000),
@@ -89,7 +89,14 @@ export async function analyzeRequest(request: Request): Promise<Response> {
         ] }],
         generationConfig: { responseMimeType: "application/json", responseJsonSchema, maxOutputTokens: 16384 },
       }),
-    });
+    };
+    const generate = (name: string) => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent`, options);
+    let response = await generate(model);
+    if (response.status === 503 && !process.env.ANALYZE_MODEL?.trim()) {
+      console.warn("analysis: Gemini temporarily unavailable, trying Flash-Lite");
+      await response.body?.cancel();
+      response = await generate("gemini-flash-lite-latest");
+    }
     // Never forward provider messages (they can contain credentials/input details).
     if (!response.ok) {
       console.warn("analysis: Gemini HTTP status", response.status);
