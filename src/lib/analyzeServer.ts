@@ -90,12 +90,15 @@ export async function analyzeRequest(request: Request): Promise<Response> {
         generationConfig: { responseMimeType: "application/json", responseJsonSchema, maxOutputTokens: 16384 },
       }),
     };
-    const generate = (name: string) => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent`, options);
+    const generate = (name: string, requestOptions = options) => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent`, requestOptions);
     let response = await generate(model);
     if (response.status === 503 && !process.env.ANALYZE_MODEL?.trim()) {
       console.warn("analysis: Gemini temporarily unavailable, trying Flash-Lite");
       await response.body?.cancel();
-      response = await generate("gemini-flash-lite-latest");
+      const fallback = JSON.parse(String(options.body));
+      delete fallback.generationConfig.responseJsonSchema;
+      fallback.systemInstruction.parts.push({ text: `Return JSON matching this contract: ${JSON.stringify(responseJsonSchema)}` });
+      response = await generate("gemini-flash-lite-latest", { ...options, body: JSON.stringify(fallback) });
     }
     // Never forward provider messages (they can contain credentials/input details).
     if (!response.ok) {
