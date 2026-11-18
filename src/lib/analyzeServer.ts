@@ -54,6 +54,10 @@ function validImage(image: string, mimeType: string): boolean {
 
 export async function analyzeRequest(request: Request): Promise<Response> {
   const key = process.env.ANALYZE_API_KEY?.trim();
+  if (key && !/^[\x21-\x7e]+$/.test(key)) {
+    console.warn("analysis: credential contains invalid HTTP header characters");
+    return fail("API_NOT_CONFIGURED", 503);
+  }
   if (!key || process.env.ANALYZE_ENABLED === "false") return fail("API_NOT_CONFIGURED", 503);
   // Prevent other browser origins from invoking the paid/quota-limited endpoint.
   const origin = request.headers.get("origin");
@@ -88,6 +92,7 @@ export async function analyzeRequest(request: Request): Promise<Response> {
     });
     // Never forward provider messages (they can contain credentials/input details).
     if (!response.ok) {
+      console.warn("analysis: Gemini HTTP status", response.status);
       if (response.status === 429) return fail("RATE_LIMITED", 429);
       if ([400, 401, 403, 404].includes(response.status)) return fail("API_NOT_CONFIGURED", 503);
       return fail("PROVIDER_UNAVAILABLE", 502);
@@ -106,6 +111,9 @@ export async function analyzeRequest(request: Request): Promise<Response> {
       return Response.json(validateAnalysis(output.result), { headers });
     } catch { return fail("MODEL_RESPONSE_INVALID", 422); }
   } catch (error) {
+    const cause = error instanceof Error ? error.cause as { code?: string } | undefined : undefined;
+    const code = cause?.code;
+    console.warn("analysis: provider call failed", error instanceof Error ? error.name : "unknown", code && /^[A-Z_0-9]{1,40}$/.test(code) ? code : "no-code");
     if (error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name)) return fail("TIMEOUT", 504);
     return fail("PROVIDER_UNAVAILABLE", 502);
   } finally { active--; }
