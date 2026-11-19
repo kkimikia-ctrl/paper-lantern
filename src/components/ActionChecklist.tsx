@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { Action } from "@/lib/schema";
 import { useLanguageContext } from "@/context/LanguageContext";
 
 interface Props {
@@ -13,7 +12,9 @@ export default function ActionChecklist({ actions, referenceIds }: Props) {
   const { t } = useLanguageContext();
   const [checked, setChecked] = useState<Set<number>>(new Set());
 
-  if (actions.length === 0) return null;
+  if (actions.length === 0) {
+    return <p className="mt-6 text-sm text-neutral-700">{t("analysis.noActions")}</p>;
+  }
 
   const toggle = (id: number) => {
     setChecked((prev) => {

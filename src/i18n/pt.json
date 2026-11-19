@@ -49,7 +49,7 @@
     "aiDisclaimerDemo": "Este é um exemplo fictício criado para demonstração — não é um documento real.",
     "noDeadlines": "Nenhum prazo identificado.",
     "noAmounts": "Nenhum valor identificado.",
-    "noActions": "Nenhuma ação necessária identificada.",
+    "noActions": "Nenhuma ação necessária.",
     "errorRateLimited": "O limite de análises foi atingido. Aguarde um pouco e tente novamente.",
     "errorUnavailable": "Não foi possível conectar ao serviço de análise. Verifique a conexão e tente novamente.",
     "partialWarning": "Há trechos com leitura incerta ou ilegível. Confira o documento original antes de agir."
