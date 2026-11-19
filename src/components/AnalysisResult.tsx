@@ -92,6 +92,17 @@ export default function AnalysisResultView({ result, isDemo = false }: Props) {
         </ul>
       </Section>
 
+      {/* Avoid presenting an unreadable document as requiring no action. */}
+      {!isDemo && result.partiallyIllegible && result.actions.length === 0 && (
+        <p role="alert" className="mt-6 rounded-xl border border-amber-300 bg-amber-100 p-4 text-sm text-amber-950">
+          {language === "pt"
+            ? "Não foi possível verificar todas as instruções e advertências. Consulte o documento original e obtenha uma cópia legível antes de agir ou utilizar o equipamento."
+            : language === "fil"
+              ? "Hindi nasuri ang lahat ng tagubilin at babala. Suriin ang orihinal na dokumento at kumuha ng malinaw na kopya bago kumilos o gumamit ng kagamitan."
+              : "Not all instructions and warnings could be verified. Check the original document and obtain a legible copy before taking action or using the equipment."}
+        </p>
+      )}
+
       {/* Ações / Checklist */}
       <ActionChecklist
         actions={loc.actions}
