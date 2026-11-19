@@ -76,6 +76,18 @@ describe("photo analysis endpoint", () => {
     const response = await analyzeRequest(request()); expect(response.status).toBe(429);
     expect(await response.text()).not.toContain("provider-secret");
   });
+  it("uses a fresh timeout for the alternate model if the first times out", async () => {
+    vi.stubEnv("ANALYZE_API_KEY", "test");
+    vi.stubEnv("ANALYZE_MODEL", "");
+    const fetcher = vi.fn().mockRejectedValueOnce(new DOMException("timeout", "TimeoutError"))
+      .mockResolvedValueOnce(Response.json({ candidates: [{ finishReason: "STOP", content: {
+        parts: [{ text: JSON.stringify({ status: "ok", result: waterBillResult }) }]
+      } }] }));
+    vi.stubGlobal("fetch", fetcher);
+    expect((await analyzeRequest(request())).status).toBe(200);
+    expect(fetcher.mock.calls[1][0]).toContain("flash-lite");
+    expect(fetcher.mock.calls[1][1].signal).not.toBe(fetcher.mock.calls[0][1].signal);
+  });
   it("handles provider timeouts", async () => {
     vi.stubEnv("ANALYZE_API_KEY", "secret");
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new DOMException("timeout","TimeoutError")));

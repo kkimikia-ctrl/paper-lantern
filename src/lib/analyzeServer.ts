@@ -79,7 +79,7 @@ export async function analyzeRequest(request: Request): Promise<Response> {
     const options: RequestInit = {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      signal: AbortSignal.timeout(45_000),
+      signal: AbortSignal.timeout(process.env.ANALYZE_MODEL?.trim() ? 45_000 : 18_000),
       cache: "no-store",
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: buildPrompt(parsed.data.language) }] },
@@ -91,14 +91,19 @@ export async function analyzeRequest(request: Request): Promise<Response> {
       }),
     };
     const generate = (name: string, requestOptions = options) => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent`, requestOptions);
-    let response = await generate(model);
-    if (response.status === 503 && !process.env.ANALYZE_MODEL?.trim()) {
+    let response: Response | undefined;
+    try {
+      response = await generate(model);
+    } catch (error) {
+      if (process.env.ANALYZE_MODEL?.trim() || !(error instanceof Error) || error.name !== "TimeoutError") throw error;
+    }
+    if (!response || (response.status === 503 && !process.env.ANALYZE_MODEL?.trim())) {
       console.warn("analysis: Gemini temporarily unavailable, trying Flash-Lite");
-      await response.body?.cancel();
+      await response?.body?.cancel();
       const fallback = JSON.parse(String(options.body));
       delete fallback.generationConfig.responseJsonSchema;
       fallback.systemInstruction.parts.push({ text: `Return JSON matching this contract: ${JSON.stringify(responseJsonSchema)}` });
-      response = await generate("gemini-flash-lite-latest", { ...options, body: JSON.stringify(fallback) });
+      response = await generate("gemini-flash-lite-latest", { ...options, signal: AbortSignal.timeout(26_000), body: JSON.stringify(fallback) });
     }
     // Never forward provider messages (they can contain credentials/input details).
     if (!response.ok) {
